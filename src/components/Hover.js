@@ -5,13 +5,19 @@ class Hover extends Component {
     let position = this.props.getStyle(this.props.position);
     console.log(position);
     return (
-      <div className="Tooltip"
-        onMouseLeave={this.props.mouseNotHover}
-        onMouseEnter={this.props.mouseHover}>
-        <p>{this.props.text}</p>
-        <div ref={this.props.toolTipRef} className={`tooltip ${position.toolTipPosition}`}>
+      <div className="Tooltip">
+        <div className="hover-div"
+          onMouseLeave={this.props.mouseNotHover}
+          onMouseEnter={this.props.mouseHover}
+        >
+          <p className="hover-div-text">{this.props.text}</p>
+        </div>
+        <div
+          ref={this.props.toolTipRef}
+          className={`tooltip-content ${position.toolTipPosition}`}
+        >
           <div className="tooltip-info">Hello</div>
-          <div className={`arrow ${position.arrowPosition}`}></div> 
+          <div className={`arrow ${position.arrowPosition}`}></div>
         </div>
       </div>
     );
